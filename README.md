@@ -13,3 +13,8 @@ $ grunt
 ```bash
 $ grunt http-server:dev
 ```
+
+## Publish
+```bash
+$ grunt publish
+```

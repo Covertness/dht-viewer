@@ -17,9 +17,9 @@
   ],
   "dependencies": {
     "heatmap.js-amd": "*",
-    "dojo": "dojo/dojo#~1.10.4",
     "spin.js": "~2.3.2",
     "clipboard": "~1.5.5",
-    "requirejs": "~2.1.22"
+    "requirejs": "~2.1.22",
+    "jquery": "~2.1.4"
   }
 }

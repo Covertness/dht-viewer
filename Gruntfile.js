@@ -23,19 +23,46 @@ module.exports = function(grunt) {
         openBrowser: true
       }
     },
+    'requirejs': {
+      compile: {
+        options: {
+          baseUrl: "lib",
+          paths: {
+            "heatmap": "heatmap.js-amd/build/heatmap",
+            "collections": "collections.min",
+            "spin": "spin.js/spin.min",
+            "clipboard": "clipboard/dist/clipboard.min",
+            "jquery": "jquery/dist/jquery.min"
+          },
+          name: "../main",
+          out: "publish/main.js"
+        }
+      }
+    },
+    'copy': {
+      main: {
+        files: [
+          {src: ['lib/requirejs/require.js'], dest: 'publish/'},
+          {src: ['github.gif'], dest: 'publish/'},
+          {src: ['index.html'], dest: 'publish/'}
+        ],
+      },
+    },
     'gh-pages': {
       options: {
-        base: '.'
+        base: 'publish'
       },
-      src: ['lib/**', 'github.gif', 'index.html']
+      src: ['**']
     }
   });
 
   grunt.loadNpmTasks('grunt-bower-install-simple');
   grunt.loadNpmTasks('grunt-curl');
   grunt.loadNpmTasks('grunt-http-server');
+  grunt.loadNpmTasks('grunt-requirejs');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-gh-pages');
 
   grunt.registerTask('default', ['bower-install-simple', 'curl']);
-
+  grunt.registerTask('publish', ['requirejs', 'copy', 'gh-pages']);
 };

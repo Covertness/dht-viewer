@@ -1,5 +1,5 @@
 # dht-viewer
-A simple page display a real-time map about the dht network. The data is collected by [node-dht-broker](https://github.com/Covertness/node-dht-broker).
+[A simple page](http://covertness.github.io/dht-viewer/) display a real-time map about the dht network. The data is collected by [node-dht-broker](https://github.com/Covertness/node-dht-broker).
 
 ## Build
 ```bash

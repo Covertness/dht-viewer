@@ -79,7 +79,7 @@ require(["heatmap", "collections", "jquery", "spin", "clipboard"], function(heat
 		return digest
 	};
 
-	$.get("http://" + dhtBroker + "/infos", function(rawData) {
+	$.get("http://" + dhtBroker + "/infos", {min_ann_nodes: 10}, function(rawData) {
 		var points = [];
 		var max = 0;
 
